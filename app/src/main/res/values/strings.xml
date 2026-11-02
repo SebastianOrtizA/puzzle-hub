@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Puzzles</string>
+
+    <!-- Week-1 spike. Replace/translate when promoted out of the spike package. -->
+    <string name="spike_tab_switches">Switches</string>
+    <string name="spike_tab_mines">Mines</string>
+    <string name="spike_switches_board">Switches board, 5 by 5, %1$d of 25 lit</string>
+    <string name="spike_mines_board">Mines board, 30 columns by 16 rows</string>
+    <string name="spike_cell_hidden">Row %1$d, column %2$d, hidden</string>
+    <string name="spike_cell_flagged">Row %1$d, column %2$d, flagged</string>
+    <string name="spike_cell_empty">Row %1$d, column %2$d, empty</string>
+    <string name="spike_cell_number">Row %1$d, column %2$d, %3$d adjacent mines</string>
+    <string name="spike_action_flag">Flag</string>
+    <string name="spike_action_chord">Chord</string>
+    <string name="spike_said_flagged">Flagged row %1$d, column %2$d</string>
+    <string name="spike_said_unflagged">Removed flag at row %1$d, column %2$d</string>
+    <string name="spike_said_revealed">Revealed row %1$d, column %2$d</string>
+    <string name="spike_said_chord">Chord at row %1$d, column %2$d opened %3$d cells</string>
+    <string name="spike_said_nothing">Nothing to do at row %1$d, column %2$d</string>
+</resources>

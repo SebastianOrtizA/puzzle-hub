@@ -4,17 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import app.puzzles.design.PuzzlesTheme
+import app.puzzles.spike.SpikeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme {
-                // Placeholder: replaced by the Hub in Foundation.
-                Text("Puzzles")
+            PuzzlesTheme {
+                SpikeScreen() // week-1 technology test; replaced by the Hub in Foundation
             }
         }
     }

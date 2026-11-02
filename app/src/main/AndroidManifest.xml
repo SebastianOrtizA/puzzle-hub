@@ -3,7 +3,8 @@
 
     <application
         android:allowBackup="true"
-        android:label="Puzzles"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Puzzles"
         android:supportsRtl="true">
         <activity
             android:name=".MainActivity"
