@@ -1,0 +1,18 @@
+# Versions checked 2026-11-01 (Google Maven / Maven Central). AGP 9 ships its own Kotlin support, so there is no kotlin-android plugin.
+[versions]
+agp = "9.5.0"
+kotlin = "2.4.21"
+composeBom = "2026.08.00"
+activityCompose = "1.13.0"
+coreKtx = "1.19.1"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
