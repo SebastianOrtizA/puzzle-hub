@@ -3,7 +3,9 @@
 Offline Android-first hub of classic logic games. Free, AGPL-3.0, no ads, no trackers, no login. Plan and rationale: `docs/`. Final name and package id are decided in Phase 0 (`docs/roadmap.md`); until then the package is `app.puzzles`.
 
 ## Current status and next step
-Phase 0 is done except: final app name + trademark check and two reference phones. A token pipeline was added outside the planning session (commit `cd963fc`: a `buildSrc` Gradle task that generates Kotlin from `design/tokens/tokens.json`, instead of Style Dictionary); it has not been build-checked yet, so run `assembleDirectDebug` first. The skeleton builds and the debug app launches on the emulator (placeholder screen only, no app theme yet).
+Phase 0 is done except: final app name + trademark check and two reference phones. A token pipeline was added outside the planning session (commit `cd963fc`: a `buildSrc` Gradle task that generates Kotlin from `design/tokens/tokens.json`, instead of Style Dictionary); CI builds it and passes.
+
+Repo: https://github.com/SebastianOrtizA/puzzle-hub (public, `origin/main`). CI (`.github/workflows/pr.yml`) is green on JDK 21 with the Direct-build guards (no network permissions, no Play/Firebase code, size ≤ 8 MB). Git has no global identity on this machine; commit with `git -c user.name=sebas -c user.email=sbstnrtzcvd@gmail.com`. The skeleton builds and the debug app launches on the emulator (placeholder screen only, no app theme yet).
 
 **Next: week-1 technology test** (`docs/roadmap.md`, Foundation): an app theme with no title bar, the Switches 5×5 board drawn on a canvas, a mock 30×16 Mines board with pinch/pan, and a TalkBack layer over 480 cells with Flag/Chord custom actions. Measure against the six go/no-go criteria, then decide whether Kotlin stays. Full plan: `docs/`.
 
