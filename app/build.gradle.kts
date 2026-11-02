@@ -49,6 +49,17 @@ kotlin {
     compilerOptions { jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17) }
 }
 
+val generateTokens = tasks.register<GenerateTokensTask>("generateTokens") {
+    tokensFile.set(rootProject.layout.projectDirectory.file("design/tokens/tokens.json"))
+    outputDir.set(layout.buildDirectory.dir("generated/tokens"))
+}
+
+androidComponents {
+    onVariants { variant ->
+        variant.sources.kotlin?.addGeneratedSourceDirectory(generateTokens, GenerateTokensTask::outputDir)
+    }
+}
+
 dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)

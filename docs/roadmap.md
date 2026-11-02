@@ -6,7 +6,7 @@
 - [x] Gradle wrapper (9.6.0) + version catalog (AGP 9.5.0, Kotlin 2.4.21, Compose BOM 2026.08.00); convention plugins still to do once there is a second module
 - [x] `direct` and `play` flavours; `assembleDirectRelease` builds (658 KB, no network permissions). Not yet run on an emulator or device.
 - [x] PR CI with the Direct-permission guard (`.github/workflows/pr.yml`); guards verified locally, workflow itself not yet run on GitHub
-- [ ] Token pipeline (Style Dictionary → Kotlin) from `design/tokens/tokens.json` (v0 drafted)
+- [x] Token pipeline: `buildSrc` `GenerateTokensTask` turns `design/tokens/tokens.json` into `Tokens.kt` (colours, spacing, radii, durations). A Gradle task instead of Style Dictionary, so no Node or extra dependency.
 - [ ] Buy two reference phones (Galaxy A52-class and Helio G35-class)
 - [ ] Design: principles, screen map, shared game-frame wireframes
 
