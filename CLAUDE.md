@@ -2,6 +2,18 @@
 
 Offline Android-first hub of classic logic games. Free, AGPL-3.0, no ads, no trackers, no login. Plan and rationale: `docs/`. Final name and package id are decided in Phase 0 (`docs/roadmap.md`); until then the package is `app.puzzles`.
 
+## Current status and next step
+Phase 0 is done except: final app name + trademark check, two reference phones, token pipeline (Style Dictionary). The skeleton builds and the debug app launches on the emulator (placeholder screen only, no app theme yet).
+
+**Next: week-1 technology test** (`docs/roadmap.md`, Foundation): an app theme with no title bar, the Switches 5×5 board drawn on a canvas, a mock 30×16 Mines board with pinch/pan, and a TalkBack layer over 480 cells with Flag/Chord custom actions. Measure against the six go/no-go criteria, then decide whether Kotlin stays. Full plan: `docs/`.
+
+## Dev machine notes (Windows)
+- Build in PowerShell with `JAVA_HOME` set: `$env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-25.0.4.101-hotspot"; .\gradlew.bat assembleDirectDebug`. `java` is not on the Git Bash PATH, so `./gradlew` fails there. Do not use `cmd /c` (it resolves to msys).
+- Android SDK: `%LOCALAPPDATA%\Android\Sdk` (path in git-ignored `local.properties`). No cmdline-tools installed.
+- Emulator: AVD `pixel_7_-_api_36_0`, start it from Android Studio Device Manager. Install and launch: `adb install -r app\build\outputs\apk\direct\debug\app-direct-debug.apk` then `adb shell am start -n app.puzzles/.MainActivity`.
+- Screenshots: `adb shell screencap -p /sdcard/s.png` then `adb pull`. Do not redirect `adb exec-out` in PowerShell (corrupts binary).
+- Versions: Gradle 9.6.0, AGP 9.5.0 (built-in Kotlin, so no kotlin-android plugin), Kotlin 2.4.21, compileSdk 37.
+
 ## Stack
 Kotlin + Jetpack Compose (Material 3). Game logic in pure Kotlin Multiplatform modules (`commonMain` only, no Android imports). Hilt for DI, Navigation 3, Room (stats), DataStore (settings), kotlinx.serialization (saves).
 
