@@ -13,9 +13,12 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
-      - uses: android-actions/setup-android@v3
+          java-version: 21
       - uses: gradle/actions/setup-gradle@v4
+
+      # The runner already has the Android SDK; accept licences so Gradle can download missing platforms/build-tools.
+      - name: Accept Android SDK licences
+        run: yes | "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager --licenses > /dev/null || true
 
       - name: Build Direct release
         run: ./gradlew assembleDirectRelease
