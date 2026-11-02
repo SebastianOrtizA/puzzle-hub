@@ -14,12 +14,12 @@ Exit: CI green; Direct APK installs with no permissions.
 
 ## Foundation (4 weeks)
 **Week 1 go/no-go test** (Switches + mock 30×16 Mines board):
-1. Cold start median ≤ 900 ms on the A52 (release + baseline profile)
-2. Mines pinch/pan ≤ 1% janky frames
-3. TalkBack over 480 cells: row-major order, Flag/Chord actions, live-region announcements, no frame > 16 ms
-4. 100 ms slide at 60 fps
-5. Direct APK ≤ 6 MB
-6. Founder writes Switches `reduce`, undo and save in ≤ 2 days
+1. Cold start median ≤ 900 ms on the A52 (release + baseline profile) — **pending device**: `:benchmark` `StartupBenchmark` written
+2. Mines pinch/pan ≤ 1% janky frames — **pending device**: `MinesGestureBenchmark` runs end to end on the emulator (numbers not valid there)
+3. TalkBack over 480 cells: row-major order, Flag/Chord actions, live-region announcements, no frame > 16 ms — **partial**: 480 nodes in row-major order and live region confirmed via uiautomator on emulator; custom actions under real TalkBack and frame time still to check
+4. 100 ms slide at 60 fps — **not started** (needs a tile-slide spike)
+5. Direct APK ≤ 6 MB — **pass**: 0.79 MB release (R8 + shrink)
+6. Founder writes Switches `reduce`, undo and save in ≤ 2 days — **pending founder** (hook: `onCellTap` in `SwitchesBoard.kt`)
 
 If (3) fails → `ExploreByTouchHelper` fallback; if (6) fails badly → Flutter re-spike.
 
